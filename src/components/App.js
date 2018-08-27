@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Widget from
   '../components/Widget';
+import Loading from
+  '../components/Loading';
 import '../styles/Widget.css';
 import logo from '../logo.svg';
 // Import widgets being used in this component
@@ -16,15 +18,25 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+
+
         </header>
 
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="header">
+           <h1 className="App-title">Welcome to my Dashboard</h1>
+          <h2>{this.props.heading}</h2>
+          {this.props.loading ? <Loading />:""}
+        </div>
+        <div className="content">
+         {this.props.children}
+        </div>
+
       </div>
     );
   }
 }
 
 export default App;
+
+
+
